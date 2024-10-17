@@ -17,9 +17,45 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center; /* Horizontally center the content */
-            align-items: center; /* Vertically center the content */
+            flex-direction: column; /* Arrange children in a column */
+            align-items: center; /* Center items horizontally */
             position: relative;
+        }
+
+        /* Top bar */
+        .top-bar {
+            background-color: rgba(62, 24, 137, 0.8); /* Semi-transparent purple */
+            width: 80%; /* Adjust width as necessary */
+            padding: 10px 0; /* Padding for top and bottom */
+            text-align: center; /* Center the text inside the bar */
+            border-radius: 10px; /* Rounded corners */
+            margin: 20px 0; /* Margin above and below */
+            color: white; /* Text color */
+            font-size: 24px; /* Text size */
+        }
+
+        /* Box container */
+        .box-container {
+            display: flex; /* Use flexbox for the boxes */
+            width: 80%; /* Set width for the box container */
+            justify-content: space-between; /* Space between the boxes */
+        }
+
+        /* Individual boxes */
+        .box {
+            background-color: rgba(62, 24, 137, 0.9); /* Darker purple background */
+            color: white; /* Text color */
+            border: 2px solid #8C46B3; /* Lighter purple border */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Padding inside boxes */
+            flex: 0 0 calc(66.67% - 10px); /* 2:3 ratio for the first box */
+            margin-right: 10px; /* Space between boxes */
+            position: relative; /* Ensure content is above the overlay */
+        }
+
+        .box:last-child {
+            margin-right: 0; /* Remove margin for the last box */
+            flex: 0 0 calc(33.33% - 10px); /* 2:3 ratio for the second box */
         }
 
         /* Transparent overlay */
@@ -33,18 +69,11 @@
             z-index: 1; /* Put the overlay in front of the background */
         }
 
-        /* All content inside the website */
+        /* Content inside the boxes */
         .content {
             position: relative; /* Ensure content is above the overlay */
             z-index: 2; /* Make sure content is on top of the overlay */
-            background-color: #3E0E5F; /* Darker purple background */
-            border: 5px solid #8C46B3; /* Lighter purple border */
-            padding: 30px;
-            color: #FFFFFF; /* White text for better readability */
-            text-align: center;
-            max-width: 600px; /* Limit the width of the content box */
-            margin: 20px; /* Margin around the content box */
-            border-radius: 10px; /* Rounded corners for the box */
+            text-align: center; /* Center text inside the boxes */
         }
 
         /* Styling for headings */
@@ -81,19 +110,35 @@
     <!-- Transparent overlay -->
     <div class="overlay"></div>
 
-    <!-- Content of the website inside the bordered box -->
-    <div class="content">
-        <h1>First</h1>
-        <p id="firstPara">first 1</p>
-        <button onclick="changeText()">Change First Paragraph Text</button>
+    <!-- Top bar -->
+    <div class="top-bar">Welcome to My Fun Webpage!</div>
 
-        <h2>Second</h2>
-        <p id="secondPara">second 2</p>
-        <button onclick="showAlert()">Show Alert for Second</button>
+    <!-- Box container for the two boxes -->
+    <div class="box-container">
+        <div class="box">
+            <div class="content">
+                <h1>First</h1>
+                <p id="firstPara">first 1</p>
+                <button onclick="changeText()">Change First Paragraph Text</button>
+            </div>
+        </div>
 
-        <h3>Third</h3>
-        <p id="thirdPara">third 3</p>
-        <button onclick="toggleThird()">Toggle Third Paragraph Visibility</button>
+        <div class="box">
+            <div class="content">
+                <h2>Second</h2>
+                <p id="secondPara">second 2</p>
+                <button onclick="showAlert()">Show Alert for Second</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Third box -->
+    <div class="box" style="flex: 0 0 calc(33.33% - 10px);">
+        <div class="content">
+            <h3>Third</h3>
+            <p id="thirdPara">third 3</p>
+            <button onclick="toggleThird()">Toggle Third Paragraph Visibility</button>
+        </div>
     </div>
 
     <script>
