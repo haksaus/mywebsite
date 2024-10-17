@@ -50,8 +50,9 @@
             border: 2px solid #8C46B3; /* Lighter purple border */
             border-radius: 10px; /* Rounded corners */
             padding: 20px; /* Padding inside boxes */
-            flex: 0 0 calc(48% - 10px); /* 2:3 ratio for each box */
-            margin-bottom: 10px; /* Space between rows */
+            flex: 0 0 calc(48% - 10px); /* Box width calculation */
+            height: calc((48% - 10px) * 1.5); /* 2:3 aspect ratio (width * 1.5) */
+            margin-bottom: 20px; /* Space between rows */
             position: relative; /* Ensure content is above the overlay */
             text-align: center; /* Center text inside the boxes */
         }
