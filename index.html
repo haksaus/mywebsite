@@ -25,7 +25,7 @@
         /* Top bar */
         .top-bar {
             background-color: rgba(62, 24, 137, 0.8); /* Semi-transparent purple */
-            width: 80%; /* Adjust width as necessary */
+            width: 70%; /* Adjust width as necessary for less width */
             padding: 10px 0; /* Padding for top and bottom */
             text-align: center; /* Center the text inside the bar */
             border-radius: 10px; /* Rounded corners */
@@ -37,7 +37,7 @@
         /* Box container */
         .box-container {
             display: flex; /* Use flexbox for the boxes */
-            width: 80%; /* Set width for the box container */
+            width: 70%; /* Set width for the box container */
             justify-content: space-between; /* Space between the boxes */
         }
 
@@ -48,14 +48,14 @@
             border: 2px solid #8C46B3; /* Lighter purple border */
             border-radius: 10px; /* Rounded corners */
             padding: 20px; /* Padding inside boxes */
-            flex: 0 0 calc(66.67% - 10px); /* 2:3 ratio for the first box */
+            flex: 0 0 calc(24% - 10px); /* 2:3 ratio for each box */
             margin-right: 10px; /* Space between boxes */
             position: relative; /* Ensure content is above the overlay */
+            text-align: center; /* Center text inside the boxes */
         }
 
-        .box:last-child {
+        .box:nth-child(4n) {
             margin-right: 0; /* Remove margin for the last box */
-            flex: 0 0 calc(33.33% - 10px); /* 2:3 ratio for the second box */
         }
 
         /* Transparent overlay */
@@ -73,7 +73,6 @@
         .content {
             position: relative; /* Ensure content is above the overlay */
             z-index: 2; /* Make sure content is on top of the overlay */
-            text-align: center; /* Center text inside the boxes */
         }
 
         /* Styling for headings */
@@ -113,7 +112,7 @@
     <!-- Top bar -->
     <div class="top-bar">Welcome to My Fun Webpage!</div>
 
-    <!-- Box container for the two boxes -->
+    <!-- Box container for the four boxes -->
     <div class="box-container">
         <div class="box">
             <div class="content">
@@ -130,14 +129,21 @@
                 <button onclick="showAlert()">Show Alert for Second</button>
             </div>
         </div>
-    </div>
 
-    <!-- Third box -->
-    <div class="box" style="flex: 0 0 calc(33.33% - 10px);">
-        <div class="content">
-            <h3>Third</h3>
-            <p id="thirdPara">third 3</p>
-            <button onclick="toggleThird()">Toggle Third Paragraph Visibility</button>
+        <div class="box">
+            <div class="content">
+                <h3>Third</h3>
+                <p id="thirdPara">third 3</p>
+                <button onclick="toggleThird()">Toggle Third Paragraph Visibility</button>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="content">
+                <h3>Fourth</h3>
+                <p>Fourth box content goes here.</p>
+                <button onclick="alert('You clicked the fourth box button!')">Click Me</button>
+            </div>
         </div>
     </div>
 
