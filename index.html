@@ -1,227 +1,173 @@
-<html>
 <head>
     <title>Fun Webpage</title>
-    
-    <!-- Favicon link -->
-    <link rel="icon" type="image/png" href="images/favicon.png"> <!-- Update the path as needed -->
-
     <style>
-        /* Add some basic styling */
         body {
             font-family: Arial, sans-serif;
-            background-image: url('images/background.gif'); /* Use the correct path for your background GIF */
-            background-size: cover; /* Make the background cover the entire page */
-            background-position: center; /* Center the background */
-            background-repeat: no-repeat; /* Prevent the GIF from repeating */
-            height: 100vh; /* Ensure the background covers the full viewport */
+            background-image: url('images/background.gif');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column; /* Arrange children in a column */
-            align-items: center; /* Center items horizontally */
+            justify-content: center;
+            align-items: flex-start;
+            flex-direction: column;
             position: relative;
         }
 
-        /* Transparent overlay */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-            z-index: 1; /* Put the overlay in front of the background */
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
 
-        /* Top bar */
-        .top-bar {
-            background-color: rgba(62, 24, 137, 0.8); /* Semi-transparent purple */
-            width: 70%; /* Width of the top bar */
-            padding: 10px 0; /* Padding for top and bottom */
-            text-align: center; /* Center the text inside the bar */
-            border-radius: 10px; /* Rounded corners */
-            margin: 20px 0; /* Margin above and below */
-            color: white; /* Text color */
-            font-size: 24px; /* Text size */
-            border: 2px solid #8C46B3; /* Border for the top bar */
-        }
-
-        /* Box container */
-        .box-container {
-            display: flex; /* Use flexbox for the boxes */
-            flex-wrap: wrap; /* Allow boxes to wrap to the next line */
-            width: 70%; /* Set width for the box container */
-            justify-content: space-between; /* Space between the boxes */
-            margin-bottom: 20px; /* Margin below the box container */
-        }
-
-        /* Individual boxes */
-        .box {
-            background-color: rgba(62, 24, 137, 0.9); /* Darker purple background */
-            color: white; /* Text color */
-            border: 2px solid #8C46B3; /* Lighter purple border */
-            border-radius: 10px; /* Rounded corners */
-            padding: 20px; /* Padding inside boxes */
-            flex: 0 0 calc(30% - 10px); /* Adjusted box width calculation for 3 boxes per row */
-            margin-bottom: 20px; /* Space between rows */
-            position: relative; /* Ensure content is above the overlay */
-            text-align: left; /* Left align text inside the boxes */
-        }
-
-        /* Ensure spacing between boxes in the same row */
-        .box:nth-child(2),
-        .box:nth-child(5) {
-            margin-left: 10px; /* Space between first and second boxes, and fourth and fifth boxes */
-        }
-
-        /* Image styling */
-        .box img {
-            width: 100%; /* Make image responsive */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 5px; /* Rounded corners for the image */
-            margin: 10px 0; /* Space above and below the image */
-        }
-
-        /* Content inside the boxes */
         .content {
-            position: relative; /* Ensure content is above the overlay */
-            z-index: 2; /* Make sure content is on top of the overlay */
+            position: relative;
+            z-index: 2;
+            background-color: #3E0E5F;
+            border: 5px solid #8C46B3;
+            padding: 30px;
+            color: #FFFFFF;
+            text-align: center;
+            max-width: 1100px;
+            margin: 20px auto;
+            border-radius: 10px;
         }
 
-        /* Styling for headings */
-        h2 {
-            color: #AA77CC; /* Soft lavender for headings */
-            margin: 0; /* Remove default margin */
+        .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
 
-        /* Styling for paragraphs */
-        p {
-            font-size: 16px;
-            color: #EDEDED; /* Light gray text */
-            margin: 5px 0; /* Adjust margin to reduce space */
+        .box {
+            background-color: #3E0E5F;
+            border: 2px solid #8C46B3;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
+            flex: 0 0 calc(32% - 20px); /* Three boxes per row */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        /* Styling for buttons */
+        .box h2 {
+            color: #AA77CC;
+            margin-bottom: 10px;
+        }
+
+        .box img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            font-size: 14px;
+            color: #EDEDED;
+            margin-bottom: auto; /* Ensure the description text doesn't push the buttons down */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
         button {
-            padding: 10px 15px;
-            font-size: 16px;
+            padding: 5px 10px;
+            font-size: 14px;
             cursor: pointer;
-            background-color: #8C46B3; /* Lighter purple background for buttons */
-            color: white; /* White text for buttons */
+            background-color: #8C46B3;
+            color: white;
             border: none;
             border-radius: 5px;
-            position: absolute; /* Positioning for buttons */
         }
 
-        /* "Background" button position */
-        .background-button {
-            left: 10px; /* Position from the left */
-            bottom: 10px; /* Position from the bottom */
-        }
-
-        /* "Buy" button position */
-        .buy-button {
-            right: 10px; /* Position from the right */
-            bottom: 10px; /* Position from the bottom */
-        }
-
-        /* Button hover effect */
         button:hover {
-            background-color: #AA77CC; /* Softer lavender on hover */
-            color: #3E0E5F; /* Dark purple text on hover */
+            background-color: #AA77CC;
         }
     </style>
 </head>
 <body>
-    <!-- Transparent overlay -->
     <div class="overlay"></div>
 
-    <!-- Top bar -->
-    <div class="top-bar">Welcome to My Fun Webpage!</div>
+    <div class="content">
+        <h1>Welcome to My Fun Webpage!</h1>
 
-    <!-- Box container for the six boxes -->
-    <div class="box-container">
-        <div class="box">
-            <div class="content">
-                <h2>Artwork 1</h2> <!-- Change heading as needed -->
-                <img src="images/test.png" alt="Artwork 1"> <!-- Image for the first box -->
-                <p id="firstPara">First artwork description goes here.</p>
-                <button class="background-button">Background</button>
-                <button class="buy-button">Buy</button>
+        <div class="box-container">
+            <!-- Box 1 -->
+            <div class="box">
+                <h2>Artwork 1</h2>
+                <img src="images/test.png" alt="Artwork 1">
+                <p>First artwork description goes here.</p>
+                <div class="button-container">
+                    <button>Background</button>
+                    <button>Buy</button>
+                </div>
             </div>
-        </div>
 
-        <div class="box">
-            <div class="content">
-                <h2>Artwork 2</h2> <!-- Change heading as needed -->
-                <img src="images/test.png" alt="Artwork 2"> <!-- Image for the second box -->
-                <p id="secondPara">Second artwork description goes here.</p>
-                <button class="background-button">Background</button>
-                <button class="buy-button">Buy</button>
+            <!-- Box 2 -->
+            <div class="box">
+                <h2>Artwork 2</h2>
+                <img src="images/test.png" alt="Artwork 2">
+                <p>Second artwork description goes here.</p>
+                <div class="button-container">
+                    <button>Background</button>
+                    <button>Buy</button>
+                </div>
             </div>
-        </div>
 
-        <div class="box">
-            <div class="content">
-                <h2>Artwork 3</h2> <!-- Change heading as needed -->
-                <img src="images/test.png" alt="Artwork 3"> <!-- Image for the third box -->
-                <p id="thirdPara">Third artwork description goes here.</p>
-                <button class="background-button">Background</button>
-                <button class="buy-button">Buy</button>
+            <!-- Box 3 -->
+            <div class="box">
+                <h2>Artwork 3</h2>
+                <img src="images/test.png" alt="Artwork 3">
+                <p>Third artwork description goes here.</p>
+                <div class="button-container">
+                    <button>Background</button>
+                    <button>Buy</button>
+                </div>
             </div>
-        </div>
 
-        <div class="box">
-            <div class="content">
-                <h2>Artwork 4</h2> <!-- Change heading as needed -->
-                <img src="images/test.png" alt="Artwork 4"> <!-- Image for the fourth box -->
+            <!-- Box 4 -->
+            <div class="box">
+                <h2>Artwork 4</h2>
+                <img src="images/test.png" alt="Artwork 4">
                 <p>Fourth artwork description goes here.</p>
-                <button class="background-button">Background</button>
-                <button class="buy-button">Buy</button>
+                <div class="button-container">
+                    <button>Background</button>
+                    <button>Buy</button>
+                </div>
             </div>
-        </div>
 
-        <div class="box">
-            <div class="content">
-                <h2>Artwork 5</h2> <!-- Change heading as needed -->
-                <img src="images/test.png" alt="Artwork 5"> <!-- Image for the fifth box -->
+            <!-- Box 5 -->
+            <div class="box">
+                <h2>Artwork 5</h2>
+                <img src="images/test.png" alt="Artwork 5">
                 <p>Fifth artwork description goes here.</p>
-                <button class="background-button">Background</button>
-                <button class="buy-button">Buy</button>
+                <div class="button-container">
+                    <button>Background</button>
+                    <button>Buy</button>
+                </div>
             </div>
-        </div>
 
-        <div class="box">
-            <div class="content">
-                <h2>Artwork 6</h2> <!-- Change heading as needed -->
-                <img src="images/test.png" alt="Artwork 6"> <!-- Image for the sixth box -->
+            <!-- Box 6 -->
+            <div class="box">
+                <h2>Artwork 6</h2>
+                <img src="images/test.png" alt="Artwork 6">
                 <p>Sixth artwork description goes here.</p>
-                <button class="background-button">Background</button>
-                <button class="buy-button">Buy</button>
+                <div class="button-container">
+                    <button>Background</button>
+                    <button>Buy</button>
+                </div>
             </div>
         </div>
     </div>
-
-    <script>
-        // Function to change the text of the first paragraph
-        function changeText() {
-            document.getElementById("firstPara").innerHTML = "The first paragraph has been changed!";
-        }
-
-        // Function to show an alert for the second heading
-        function showAlert() {
-            alert("You clicked on the second button!");
-        }
-
-        // Function to toggle the visibility of the third paragraph
-        function toggleThird() {
-            var thirdPara = document.getElementById("thirdPara");
-            if (thirdPara.style.display === "none") {
-                thirdPara.style.display = "block";
-            } else {
-                thirdPara.style.display = "none";
-            }
-        }
-    </script>
 </body>
-</html>
