@@ -25,7 +25,7 @@
         /* Top bar */
         .top-bar {
             background-color: rgba(62, 24, 137, 0.8); /* Semi-transparent purple */
-            width: 70%; /* Adjust width as necessary for less width */
+            width: 70%; /* Width of the top bar */
             padding: 10px 0; /* Padding for top and bottom */
             text-align: center; /* Center the text inside the bar */
             border-radius: 10px; /* Rounded corners */
@@ -51,7 +51,7 @@
             border: 2px solid #8C46B3; /* Lighter purple border */
             border-radius: 10px; /* Rounded corners */
             padding: 20px; /* Padding inside boxes */
-            flex: 0 0 calc(48% - 10px); /* Box width calculation */
+            flex: 0 0 calc(48% - 10px); /* Box width calculation (2 boxes per row) */
             height: calc((48% - 10px) * 1.5); /* 2:3 aspect ratio (width * 1.5) */
             margin-bottom: 20px; /* Space between rows */
             position: relative; /* Ensure content is above the overlay */
@@ -61,7 +61,7 @@
         /* Ensure spacing between boxes in the same row */
         .box:nth-child(2),
         .box:nth-child(4) {
-            margin-left: 20px; /* Space between first and second boxes, and third and fourth boxes */
+            margin-left: 10px; /* Space between first and second boxes, and third and fourth boxes */
         }
 
         /* Transparent overlay */
@@ -102,6 +102,19 @@
             color: white; /* White text for buttons */
             border: none;
             border-radius: 5px;
+            position: absolute; /* Positioning for buttons */
+        }
+
+        /* "Background" button position */
+        .background-button {
+            left: 10px; /* Position from the left */
+            bottom: 10px; /* Position from the bottom */
+        }
+
+        /* "Buy" button position */
+        .buy-button {
+            right: 10px; /* Position from the right */
+            bottom: 10px; /* Position from the bottom */
         }
 
         /* Button hover effect */
@@ -124,7 +137,8 @@
             <div class="content">
                 <h1>First</h1>
                 <p id="firstPara">first 1</p>
-                <button onclick="changeText()">Change First Paragraph Text</button>
+                <button class="background-button">Background</button>
+                <button class="buy-button">Buy</button>
             </div>
         </div>
 
@@ -132,7 +146,8 @@
             <div class="content">
                 <h2>Second</h2>
                 <p id="secondPara">second 2</p>
-                <button onclick="showAlert()">Show Alert for Second</button>
+                <button class="background-button">Background</button>
+                <button class="buy-button">Buy</button>
             </div>
         </div>
 
@@ -140,7 +155,8 @@
             <div class="content">
                 <h3>Third</h3>
                 <p id="thirdPara">third 3</p>
-                <button onclick="toggleThird()">Toggle Third Paragraph Visibility</button>
+                <button class="background-button">Background</button>
+                <button class="buy-button">Buy</button>
             </div>
         </div>
 
@@ -148,7 +164,8 @@
             <div class="content">
                 <h3>Fourth</h3>
                 <p>Fourth box content goes here.</p>
-                <button onclick="alert('You clicked the fourth box button!')">Click Me</button>
+                <button class="background-button">Background</button>
+                <button class="buy-button">Buy</button>
             </div>
         </div>
     </div>
