@@ -22,6 +22,17 @@
             position: relative;
         }
 
+        /* Transparent overlay */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+            z-index: 1; /* Put the overlay in front of the background */
+        }
+
         /* Top bar */
         .top-bar {
             background-color: rgba(62, 24, 137, 0.8); /* Semi-transparent purple */
@@ -51,7 +62,7 @@
             border: 2px solid #8C46B3; /* Lighter purple border */
             border-radius: 10px; /* Rounded corners */
             padding: 20px; /* Padding inside boxes */
-            flex: 0 0 calc(45% - 10px); /* Adjusted box width calculation for 2 boxes per row */
+            flex: 0 0 calc(30% - 10px); /* Adjusted box width calculation for 3 boxes per row */
             margin-bottom: 20px; /* Space between rows */
             position: relative; /* Ensure content is above the overlay */
             text-align: left; /* Left align text inside the boxes */
@@ -59,8 +70,8 @@
 
         /* Ensure spacing between boxes in the same row */
         .box:nth-child(2),
-        .box:nth-child(4) {
-            margin-left: 10px; /* Space between first and second boxes, and third and fourth boxes */
+        .box:nth-child(5) {
+            margin-left: 10px; /* Space between first and second boxes, and fourth and fifth boxes */
         }
 
         /* Image styling */
@@ -69,17 +80,6 @@
             height: auto; /* Maintain aspect ratio */
             border-radius: 5px; /* Rounded corners for the image */
             margin: 10px 0; /* Space above and below the image */
-        }
-
-        /* Transparent overlay */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-            z-index: 1; /* Put the overlay in front of the background */
         }
 
         /* Content inside the boxes */
@@ -139,7 +139,7 @@
     <!-- Top bar -->
     <div class="top-bar">Welcome to My Fun Webpage!</div>
 
-    <!-- Box container for the four boxes -->
+    <!-- Box container for the six boxes -->
     <div class="box-container">
         <div class="box">
             <div class="content">
@@ -176,6 +176,26 @@
                 <h2>Artwork 4</h2> <!-- Change heading as needed -->
                 <img src="images/test.png" alt="Artwork 4"> <!-- Image for the fourth box -->
                 <p>Fourth artwork description goes here.</p>
+                <button class="background-button">Background</button>
+                <button class="buy-button">Buy</button>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="content">
+                <h2>Artwork 5</h2> <!-- Change heading as needed -->
+                <img src="images/test.png" alt="Artwork 5"> <!-- Image for the fifth box -->
+                <p>Fifth artwork description goes here.</p>
+                <button class="background-button">Background</button>
+                <button class="buy-button">Buy</button>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="content">
+                <h2>Artwork 6</h2> <!-- Change heading as needed -->
+                <img src="images/test.png" alt="Artwork 6"> <!-- Image for the sixth box -->
+                <p>Sixth artwork description goes here.</p>
                 <button class="background-button">Background</button>
                 <button class="buy-button">Buy</button>
             </div>
