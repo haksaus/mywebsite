@@ -32,6 +32,7 @@
             margin: 20px 0; /* Margin above and below */
             color: white; /* Text color */
             font-size: 24px; /* Text size */
+            border: 2px solid #8C46B3; /* Border for the top bar */
         }
 
         /* Box container */
@@ -55,6 +56,12 @@
             margin-bottom: 20px; /* Space between rows */
             position: relative; /* Ensure content is above the overlay */
             text-align: center; /* Center text inside the boxes */
+        }
+
+        /* Ensure spacing between boxes in the same row */
+        .box:nth-child(2),
+        .box:nth-child(4) {
+            margin-left: 20px; /* Space between first and second boxes, and third and fourth boxes */
         }
 
         /* Transparent overlay */
